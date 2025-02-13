@@ -18,16 +18,19 @@ class Aplicacion:
 
     def iniciar_sesion(Aplicacion):
         
-        """ Permite al usuario ingresar su número de cuenta y NIP para iniciar sesión. """
-        numero_cuenta = input("Ingrese su número de cuenta: ")
-        nip = input("Ingrese su NIP: ")
+        try:
+            """ Permite al usuario ingresar su número de cuenta y NIP para iniciar sesión. """
+            numero_cuenta = input("Ingrese su número de cuenta: ")
+            nip = int(input("Ingrese su NIP: "))
 
-        if numero_cuenta in Aplicacion.usuarios and Aplicacion.usuarios[numero_cuenta].iniciar_sesion(nip):
-            print("Inicio de sesión exitoso.")
-            Aplicacion.mostrar_menu(Aplicacion.usuarios[numero_cuenta])
-        else:
-            print("Número de cuenta o NIP incorrecto.")
-   
+            if numero_cuenta in Aplicacion.usuarios and Aplicacion.usuarios[numero_cuenta].iniciar_sesion(nip):
+                print("Inicio de sesión exitoso.")
+                Aplicacion.mostrar_menu(Aplicacion.usuarios[numero_cuenta])
+            else:
+                print("Número de cuenta o NIP incorrecto.")
+        except ValueError:
+            print("-------------------------------------------------------------------------------")
+            print("Ingresa una opción válida en tui nip / solo numeros.")
    
     def menuI(Aplicacion):
         elec = -1
@@ -48,23 +51,28 @@ class Aplicacion:
                 Aplicacion.iniciar_sesion()
                 
             elif elec == 2: 
-                
-                nombre = input("Ingresa tu nombre: ")
-                numero_cu = input("Ingresa tu numero de cuenta: ")
-                
                 try:
+                    nombre = input("Ingresa tu nombre: ")
+                    
+                    numero_cu = input("Ingresa tu numero de cuenta: ")
+                    
+                        # Validar que el número de cuenta sea un número
+                    if not numero_cu.isdigit():
+                        raise ValueError("El número de cuenta debe contener solo números.")
                     
                     niip = int(input("Ingresa tu nip: "))
+                    
+                    saldo = 1000
+                    # len(Aplicacion.usuarios) + 1 / sirve para auto incrementar la id
+                    Aplicacion.registrar_usuario(len(Aplicacion.usuarios) + 1, nombre, numero_cu, niip, saldo)
                     
                 except ValueError:
                     
                     print("-------------------------------------------------------------------------------")
-                    print("Ingresa una opción válida de solo numeros.")
+                    print("Ingresa una opción válida / solo numeros positivos =).")
 
 
-                saldo = 1000
-                # len(Aplicacion.usuarios) + 1 / sirve para auto incrementar la id
-                Aplicacion.registrar_usuario(len(Aplicacion.usuarios) + 1,nombre,numero_cu,niip,saldo)
+                
                 
             else:
                 
