@@ -21,7 +21,13 @@ class Aplicacion:
         try:
             """ Permite al usuario ingresar su número de cuenta y NIP para iniciar sesión. """
             numero_cuenta = input("Ingrese su número de cuenta: ")
-            nip = int(input("Ingrese su NIP: "))
+            
+            if not numero_cuenta.isdigit():
+                        raise ValueError("El número de cuenta debe contener solo números.")
+                    
+            nip = input("Ingrese su NIP: ")
+            if not nip.isdigit():
+                        raise ValueError("El número de cuenta debe contener solo números.")
 
             if numero_cuenta in Aplicacion.usuarios and Aplicacion.usuarios[numero_cuenta].iniciar_sesion(nip):
                 print("Inicio de sesión exitoso.")
@@ -60,7 +66,9 @@ class Aplicacion:
                     if not numero_cu.isdigit():
                         raise ValueError("El número de cuenta debe contener solo números.")
                     
-                    niip = int(input("Ingresa tu nip: "))
+                    niip = input("Ingresa tu nip: ")
+                    if not niip.isdigit():
+                        raise ValueError("El número de cuenta debe contener solo números.")
                     
                     saldo = 1000
                     # len(Aplicacion.usuarios) + 1 / sirve para auto incrementar la id
