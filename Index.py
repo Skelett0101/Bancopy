@@ -1,8 +1,6 @@
 from Aplicacion import Aplicacion
 
 bbvv = Aplicacion()
-#sss
-#setsS
-#sss
 
+#Inicio manu de registro 
 bbvv.menuI()
