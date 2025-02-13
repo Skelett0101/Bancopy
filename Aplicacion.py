@@ -15,6 +15,7 @@ class Aplicacion:
             return
         Aplicacion.usuarios[numero_cuenta] = Usuario(id_usuario, nombre, numero_cuenta, nip, saldo_inicial)
         print(f"Usuario {nombre} registrado con éxito.")
+    
 
     def iniciar_sesion(Aplicacion):
         
@@ -37,6 +38,7 @@ class Aplicacion:
         except ValueError:
             print("-------------------------------------------------------------------------------")
             print("Ingresa una opción válida en tui nip / solo numeros.")
+    
    
     def menuI(Aplicacion):
         elec = -1
