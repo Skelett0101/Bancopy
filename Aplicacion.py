@@ -6,6 +6,7 @@ class Aplicacion:
         Aplicacion.usuarios = {}  # Diccionario de usuarios registrados
        # Aplicacion.pago = Pago()  # Instancia de la clase pago
        
+       #jacome y jotuel
        
     
     def registrar_usuario(Aplicacion, id_usuario, nombre, numero_cuenta, nip, saldo_inicial=0):
