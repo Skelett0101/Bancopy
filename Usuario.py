@@ -8,6 +8,7 @@ class Usuario:
         Usuario.cuenta = Cuenta(numero_cuenta, saldo)
         Usuario.contactos = {}  # Diccionario de contactos para realizar transferencias
         ##es josue
+        #papas
     def iniciar_sesion(Usuario, nip_ingresado):
         """ Verifica que el NIP ingresado sea correcto. """
         return Usuario.nip == nip_ingresado
