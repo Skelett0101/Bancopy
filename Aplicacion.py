@@ -90,3 +90,70 @@ class Aplicacion:
                 print("-------------------------------------------------------------------------------")
                 
                 print("Selecciona solo los numeros mostrados")
+
+
+
+    def mostrar_menu(Aplicacion):
+         option = 0
+
+         while option !=0:
+            print("------------------------------------------------------------------------------")
+            print("1.Consultar Saldo")
+            print("2.Depositos")
+            print("3.Retiros en Efectivo")
+            print("4.Cambiar NIP")
+            print("5.Transferencias")
+            print("6.Pagos de Servicios")
+            print("7.Generar Pagos")
+            print("8.Cobros")
+            print("9.Visualizar Pagos")
+            print("10.Agregar Contactos")
+            print("11.Eliminar Contactos")
+            print("12.Salir")
+
+
+            try:
+                option = int(input("Elige una opción: "))
+                
+            except ValueError:
+                print("-------------------------------------------------------------------------------")
+                print("Opcion Invalida.")
+
+
+                if option == 1: 
+                    Aplicacion.Consultar_Saldo()
+                elif option == 2:
+                    Aplicacion.Depositos()
+                elif option == 3:
+                    Aplicacion.Retiros()
+                elif option == 4:
+                    Aplicacion.Cambiar_Nip()
+                elif option == 5:
+                    Aplicacion.Transferencias()
+                elif option == 6:
+                    Aplicacion.Pagos_de_Servicios()
+                elif option == 7: 
+                    Aplicacion.Generar_Pagos()
+                elif option == 8:
+                    Aplicacion.Cobros()
+                elif option == 9:
+                    Aplicacion.Visualizar_Pagos()
+                elif option == 10:
+                    Aplicacion.Agregar_Contactos()
+                elif option == 11:
+                    Aplicacion.Eliminar_Contactos()
+                elif option == 0:
+                    print("Cerrando sesion...")
+                    break
+                else:
+                    print("-------------------------------------------------------------------------------")
+                    print("Selecciona una opcion valida.")
+
+            except ValueError:
+                print("-------------------------------------------------------------------------------")
+                print("Opcion invalida. Ingresa una opcion valido.")
+            
+                 
+
+
+    
