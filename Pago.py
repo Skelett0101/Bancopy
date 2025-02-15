@@ -7,6 +7,5 @@ class Pago:
     def generar_pago(pago, usuario_origen, monto, usuario_destino):
 
 
-        
 
     def cobrar_pago(pago, usuario_destino, codigo):
