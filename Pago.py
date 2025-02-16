@@ -1,3 +1,4 @@
+
 class Pago:
 
     def __init__ (pago):
