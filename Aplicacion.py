@@ -79,7 +79,7 @@ class Aplicacion:
 
         if numero_cuenta in Aplicacion.usuarios and Aplicacion.usuarios[numero_cuenta].iniciar_sesion(nip):
             print("Inicio de sesión exitoso.")
-            Aplicacion.menu_usuario(Aplicacion.usuarios[numero_cuenta])
+            Aplicacion.mostrar_menu(Aplicacion.usuarios[numero_cuenta])
         else:
             print("Número de cuenta o NIP incorrecto.")
 
