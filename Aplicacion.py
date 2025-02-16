@@ -7,11 +7,7 @@ from Cuenta import Cuenta
 class Aplicacion:
     def __init__(Aplicacion):
         Aplicacion.usuarios = {}  # Diccionario de usuarios registrados
-       # Aplicacion.pago = Pago()  # Instancia de la clase pago
-       
-       
-       
-    
+
     def menuI(Aplicacion):
         while True:
             print("----------------------------------------------")
@@ -81,38 +77,32 @@ class Aplicacion:
 
         if numero_cuenta in Aplicacion.usuarios and Aplicacion.usuarios[numero_cuenta].iniciar_sesion(nip):
             print("Inicio de sesión exitoso.")
-            Aplicacion.mostrar_menu(Aplicacion.usuarios[numero_cuenta])
+            Aplicacion.mostrar_menu(Aplicacion.usuarios[numero_cuenta])  # Aquí pasamos el usuario al menú
         else:
             print("Número de cuenta o NIP incorrecto.")
 
+    def mostrar_menu(Aplicacion, usuario):
+        option = -1
 
-    def mostrar_menu(Aplicacion,usuario):
-         option = 0
-
-         while option !=0:
+        while option != 0:
             print("------------------------------------------------------------------------------")
-            print("1.Consultar Saldo")
-            print("2.Depositos")
-            print("3.Retiros en Efectivo")
-            print("4.Cambiar NIP")
-            print("5.Transferencias")
-            print("6.Pagos de Servicios")
-            print("7.Generar Pagos")
-            print("8.Cobros")
-            print("9.Visualizar Pagos")
-            print("10.Agregar Contactos")
-            print("11.Eliminar Contactos")
-            print("12.Salir")
-
+            print("1. Consultar Saldo")
+            print("2. Depositos")
+            print("3. Retiros en Efectivo")
+            print("4. Cambiar NIP")
+            print("5. Transferencias")
+            print("6. Pagos de Servicios")
+            print("7. Generar Pagos")
+            print("8. Cobros")
+            print("9. Visualizar Pagos")
+            print("10. Agregar Contactos")
+            print("11. Eliminar Contactos")
+            print("12. Salir")
+            print("------------------------------------------------------------------------------")
 
             try:
                 option = int(input("Elige una opción: "))
                 
-            except ValueError:
-                print("-------------------------------------------------------------------------------")
-                print("Opcion Invalida.")
-
-
                 if option == 1: 
                     usuario.Consultar_Saldo()
                 elif option == 2:
@@ -136,17 +126,9 @@ class Aplicacion:
                 elif option == 11:
                     Aplicacion.Eliminar_Contactos()
                 elif option == 0:
-                    print("Cerrando sesion...")
+                    print("Cerrando sesión...")
                     break
                 else:
-                    print("-------------------------------------------------------------------------------")
-                    print("Selecciona una opcion valida.")
-
+                    print("Selecciona una opción válida.")
             except ValueError:
-                print("-------------------------------------------------------------------------------")
-                print("Opcion invalida. Ingresa una opcion valido.")
-            
-                 
-
-
-    
+                print("Opción inválida. Ingresa una opción válida.")
