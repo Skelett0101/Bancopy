@@ -1,5 +1,6 @@
 
 from Usuario import Usuario
+from Cuenta import Cuenta
 
 class Aplicacion:
     def __init__(Aplicacion):
