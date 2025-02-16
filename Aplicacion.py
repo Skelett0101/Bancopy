@@ -1,6 +1,8 @@
-
 from Usuario import Usuario
+from Pago import Pago
+from Transaccion import Transaccion
 from Cuenta import Cuenta
+
 
 class Aplicacion:
     def __init__(Aplicacion):
@@ -84,7 +86,7 @@ class Aplicacion:
             print("Número de cuenta o NIP incorrecto.")
 
 
-    def mostrar_menu(Aplicacion):
+    def mostrar_menu(Aplicacion,usuario):
          option = 0
 
          while option !=0:
@@ -112,7 +114,7 @@ class Aplicacion:
 
 
                 if option == 1: 
-                    Aplicacion.Consultar_Saldo()
+                    usuario.Consultar_Saldo()
                 elif option == 2:
                     Aplicacion.Depositos()
                 elif option == 3:
