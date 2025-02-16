@@ -9,7 +9,7 @@ class Cuenta:
             print("No puedes depositar más de $15,000 a la vez.")
             return False
         Cuenta.saldo += monto
-        print(f"Depósito exitoso. Nuevo saldo: ${Cuenta.saldo}")
+        print(f"Depósito exitoso. ")
         return True
 
     def retirar(Cuenta, monto):
