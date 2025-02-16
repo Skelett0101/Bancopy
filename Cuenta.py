@@ -1,4 +1,4 @@
-from Pagos import Pagos
+from Pago import Pago
 
 class Cuenta:
 

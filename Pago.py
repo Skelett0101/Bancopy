@@ -33,13 +33,6 @@ class Pago:
             return f"Pago {codigo} cobrado exitosamente"
         else:
             return "Código de pago no válido"
-
-    def verificar_fondos(self, usuario_origen, monto):
-        # Lógica para verificar si la cuenta de origen tiene fondos suficientes
-        # Esto es un placeholder, debes implementar la lógica real
-        return True
-
-    def realizar_transferencia(self, usuario_origen, usuario_destino, monto):
-        # Lógica para realizar la transferencia
-        # Esto es un placeholder, debes implementar la lógica real
-        pass
+        
+        
+    

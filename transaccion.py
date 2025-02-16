@@ -1,32 +1,35 @@
 class Transaccion:
-    def __init__(self, tipo, monto, cuenta_origen, cuenta_destino=None):
-        self.tipo = tipo
-        self.monto = monto
-        self.cuenta_origen = cuenta_origen
-        self.cuenta_destino = cuenta_destino
+    def __init__(Transaccion, tipo, monto, cuenta_origen, cuenta_destino=None):
+        Transaccion.tipo = tipo  # "Depósito", "Retiro", "Transferencia"
+        Transaccion.monto = monto
+        Transaccion.cuenta_origen = cuenta_origen
+        Transaccion.cuenta_destino = cuenta_destino
 
-    def validar_transaccion(self):
-        # Verifica si la transacción es válida
-        if self.tipo not in ["Depósito", "Retiro", "Transferencia"]:
+    def validar_transaccion(Transaccion):
+        """ Verifica si la transacción es válida (fondos suficientes, monto permitido). """
+        if Transaccion.tipo == "Retiro" and Transaccion.monto > Transaccion.cuenta_origen.saldo:
+            print("Error: Fondos insuficientes para el retiro.")
             return False
-        if self.monto <= 0:
-            return False
-        if self.tipo == "Transferencia" and self.cuenta_destino is None:
-            return False
-        # Aquí puedes agregar más validaciones, como verificar fondos suficientes
+        if Transaccion.tipo == "Transferencia":
+            if Transaccion.monto > 15000:
+                print("Error: No puedes transferir más de $15,000.")
+                return False
+            if Transaccion.monto > Transaccion.cuenta_origen.saldo:
+                print("Error: Fondos insuficientes para la transferencia.")
+                return False
         return True
 
-    def ejecutar_transaccion(self):
-        if not self.validar_transaccion():
-            return "Transacción no válida"
-        
-        if self.tipo == "Depósito":
-            # Lógica para depositar en la cuenta de origen
-            pass
-        elif self.tipo == "Retiro":
-            # Lógica para retirar de la cuenta de origen
-            pass
-        elif self.tipo == "Transferencia":
-            # Lógica para transferir de la cuenta de origen a la cuenta de destino
-            pass
-        return "Transacción ejecutada con éxito"
+    def ejecutar_transaccion(Transaccion):
+        """ Realiza la operación si es válida. """
+        if not Transaccion.validar_transaccion():
+            return False
+
+        if Transaccion.tipo == "Depósito":
+            Transaccion.cuenta_origen.depositar(Transaccion.monto)
+        elif Transaccion.tipo == "Retiro":
+            Transaccion.cuenta_origen.retirar(Transaccion.monto)
+        elif Transaccion.tipo == "Transferencia":
+            Transaccion.cuenta_origen.transferir(Transaccion.monto, Transaccion.cuenta_destino)
+
+        print(f"Transacción {Transaccion.tipo} de ${Transaccion.monto} completada.")
+        return True
