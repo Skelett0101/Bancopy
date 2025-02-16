@@ -5,7 +5,7 @@ class Cuenta:
 
     def depositar(Cuenta, monto):
         """ Deposita una cantidad de dinero en la cuenta. Verifica que no exceda los $15,000. """
-        if monto > 15000:
+        if monto >= 15000:
             print("No puedes depositar más de $15,000 a la vez.")
             return False
         Cuenta.saldo += monto
@@ -23,7 +23,7 @@ class Cuenta:
 
     def transferir(Cuenta, monto, cuenta_destino):
         """ Realiza una transferencia a otra cuenta, verificando que el monto no exceda el límite y haya suficiente saldo. """
-        if monto > 15000:
+        if monto >= 15000:
             print("No puedes transferir más de $15,000 a la vez.")
             return False
         if monto > Cuenta.saldo:
