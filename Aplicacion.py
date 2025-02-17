@@ -101,21 +101,91 @@ class Aplicacion:
             print("10) Pago de Servicio")
             print("0) Cerrar sesión")
             print("----------------------------------------------")
-            
+
+
             try:
                 option = int(input("Elige una opción: "))
                 
                 if option == 1: 
-                    usuario.Consultar_Saldo()
+                    usuario.consultar_saldo()
+
+
+
+
                 elif option == 2:
-                    Aplicacion.Depositos()
-                elif option == 3:
-                    Aplicacion.Retiros()
-                elif option == 4:
-                    Aplicacion.Cambiar_Nip()
-                elif option == 5:
-                    Aplicacion.Transferencias()
                     
+                    print("----------------------------------------------")
+                    print("                 DEPOSITOS                    ")
+                    print("----------------------------------------------")
+
+                    try:
+                        Depto = float(input("Ingrese monto a Depositar: "))
+                        
+                        if Depto > 0:
+                            usuario.cuenta.depositar(Depto)
+                            print("")
+                        else:
+                            print("Error: El monto debe ser mayor.")
+                    except ValueError:
+                        print("Error: Ingrese un número válido.")
+
+
+
+
+
+                elif option == 3:
+
+
+                    
+                    print("----------------------------------------------")
+                    print("                   RETIROS                    ")
+                    print("----------------------------------------------")
+
+                    try:
+                        ret = float(input("Ingrese monto a cobrar: "))
+                        if ret > 0:
+                            codigo = usuario.cuenta.retirar(ret)
+                            print(f"Le invitamos a Agregar mas efectivo a su cuenta.")
+                        else:
+                            print("Error: El monto debe ser positivo.")
+                    except ValueError:
+                        print("Error: Ingrese un número válido.")
+
+
+
+                elif option == 4:
+
+                    print("----------------------------------------------")
+                    print("              CAMBIO DE NIP                   ")
+                    print("----------------------------------------------")
+                    while True:
+                        nuevo_nip = input("Ingrese nuevo NIP (4 dígitos): ")
+                        if nuevo_nip.isdigit() and len(nuevo_nip) == 4:
+                            usuario.cambiar_nip(nuevo_nip)
+                            break
+                        else:
+                            print("Error: El NIP debe contener exactamente 4 dígitos numéricos.")
+
+
+                elif option == 5:
+                    
+                    print("----------------------------------------------")
+                    print("                TRANSFERENCIAS                ")
+                    print("----------------------------------------------")
+
+                    try:
+                        tranfe = float(input("Ingrese monto a transferir: "))
+                        cuenta_destino = input("Ingrese la cuenta destino: ")
+
+                        if cuenta_destino in Aplicacion.usuarios:  # Verificar si la cuenta destino existe
+                            usuario.cuenta.transferir(tranfe, Aplicacion.usuarios[cuenta_destino].cuenta)
+                            print("Transferencia exitosa.")
+                        else:
+                            print("Error: La cuenta destino no existe.")
+                    except ValueError:
+                        print("Error: Ingrese un número válido.")
+                    
+
                 elif option == 6:
                    usuario.ver_contactos()
                 
