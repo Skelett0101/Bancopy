@@ -109,9 +109,6 @@ class Aplicacion:
                 if option == 1: 
                     usuario.consultar_saldo()
 
-
-
-
                 elif option == 2:
                     
                     print("----------------------------------------------")
@@ -128,10 +125,6 @@ class Aplicacion:
                             print("Error: El monto debe ser mayor.")
                     except ValueError:
                         print("Error: Ingrese un número válido.")
-
-
-
-
 
                 elif option == 3:
 
