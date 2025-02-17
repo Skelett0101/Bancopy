@@ -168,13 +168,15 @@ class Aplicacion:
 
                     try:
                         tranfe = float(input("Ingrese monto a transferir: "))
-                        cuenta_destino = input("Ingrese la cuenta destino: ")
 
-                        if cuenta_destino in Aplicacion.usuarios:  # Verificar si la cuenta destino existe
-                            usuario.cuenta.transferir(tranfe, Aplicacion.usuarios[cuenta_destino].cuenta)
+                            # Llamar al método para seleccionar un contacto y guardar la cuenta destino
+                        cuenta_destino = usuario.seleccionar_contacto()
+
+                        if cuenta_destino:  # Verificar si se seleccionó una cuenta válida
+                            usuario.cuenta.transferir(tranfe, cuenta_destino)
                             print("Transferencia exitosa.")
                         else:
-                            print("Error: La cuenta destino no existe.")
+                            print("Error: No se seleccionó una cuenta válida.")
                     except ValueError:
                         print("Error: Ingrese un número válido.")
                     
