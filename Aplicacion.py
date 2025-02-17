@@ -1,6 +1,6 @@
 from Usuario import Usuario
 from Pago import Pago
-from Transaccion import Transaccion
+#from Transaccion import Transaccion
 from Cuenta import Cuenta
 
 
