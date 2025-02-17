@@ -159,7 +159,8 @@ class Aplicacion:
                     nombre = input("Nombre del contacto: ")
                     cuenta = input("Número de cuenta: ")
                     if cuenta.isdigit() and cuenta in Aplicacion.usuarios:
-                        usuario.agregar_contacto(nombre, Aplicacion.usuarios[cuenta].cuenta)
+                        # Llamada al método con Aplicacion.usuarios como parámetro adicional
+                        usuario.agregar_contacto(nombre, Aplicacion.usuarios[cuenta].cuenta, Aplicacion.usuarios)
                     else:
                         print("Cuenta no encontrada o formato incorrecto.")
 

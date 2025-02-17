@@ -29,8 +29,20 @@ class Usuario:
             print("Contactos:")
             for nombre, cuenta in Usuario.contactos.items():
                 print(f"{nombre}: {cuenta.numero_cuenta}")
-
-    def agregar_contacto(Usuario, nombre, cuenta_destino):
+                
+    def agregar_contacto(Usuario, nombre, cuenta_destino, usuarios):
         """ Agrega un contacto para realizar transferencias. """
+        # Verificar si la cuenta destino existe en el sistema
+        if cuenta_destino.numero_cuenta not in usuarios:
+            print(f"Error: La cuenta {cuenta_destino.numero_cuenta} no está registrada en el sistema.")
+            return False
+
+        # Verificar que no sea la propia cuenta del usuario
+        if cuenta_destino == Usuario.cuenta:
+            print("Error: No puedes agregar tu propia cuenta como contacto.")
+            return False
+
+        # Agregar el contacto si la cuenta destino es válida
         Usuario.contactos[nombre] = cuenta_destino
         print(f"Contacto {nombre} agregado con la cuenta {cuenta_destino.numero_cuenta}.")
+        return True

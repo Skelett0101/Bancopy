@@ -1,4 +1,4 @@
-class Transaccion:
+class Transaccion0000:
     def __init__(Transaccion, tipo, monto, cuenta_origen, cuenta_destino=None):
         Transaccion.tipo = tipo  # "Depósito", "Retiro", "Transferencia"
         Transaccion.monto = monto
