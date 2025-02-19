@@ -174,7 +174,7 @@ class Aplicacion:
 
                         if cuenta_destino:  # Verificar si se seleccionó una cuenta válida
                             usuario.cuenta.transferir(tranfe, cuenta_destino)
-                            print("Transferencia exitosa.")
+                            
                         else:
                             print("Error: No se seleccionó una cuenta válida.")
                     except ValueError:
